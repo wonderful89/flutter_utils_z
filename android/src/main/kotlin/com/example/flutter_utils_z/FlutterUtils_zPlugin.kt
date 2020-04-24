@@ -6,7 +6,10 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
-class FlutterUtils_zPlugin: MethodCallHandler {
+import androidx.annotation.NonNull;
+import io.flutter.embedding.engine.plugins.FlutterPlugin
+
+class FlutterUtils_zPlugin: FlutterPlugin, MethodCallHandler { //ActivityAware
   companion object {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
@@ -21,5 +24,13 @@ class FlutterUtils_zPlugin: MethodCallHandler {
     } else {
       result.notImplemented()
     }
+  }
+
+  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+    val channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_utils_z")
+    channel.setMethodCallHandler(FlutterUtils_zPlugin());
+  }
+
+  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
   }
 }
