@@ -1,0 +1,26 @@
+dartdoc:
+#  categories:
+#    "First Category":
+#      markdown: doc/First.md
+#      name: Awesome
+#    "Second Category":
+#      markdown: doc/Second.md
+#      name: Great
+#  categoryOrder: ["First Category", "Second Category"]
+  examplePathPrefix: 'lib/src'
+  # 这种方式可以生效
+  include: ['flutter_utils_z']
+#  includeExternal: ['bin/unusually_located_library.dart']
+  linkTo:
+    url: "https://my.dartdocumentationsite.org/dev/%v%"
+  showUndocumentedCategories: true
+  ignore:
+    - ambiguous-doc-reference
+  errors:
+    - unresolved-doc-reference
+  warnings:
+    - tool-error
+
+
+# dartdoc --exclude 'dart:async,dart:collection,dart:convert,dart:core,dart:developer,dart:io,dart:isolate,dart:math,dart:typed_data,dart:ui'
+# 目前还不太成熟

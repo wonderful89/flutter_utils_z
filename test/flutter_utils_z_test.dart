@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_utils_z/flow_control.dart';
+import 'package:flutter_utils_z/src/flow_control.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('flutter_utils_z');
